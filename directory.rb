@@ -1,3 +1,4 @@
+student_count = 11
 #first we print all the new students
 puts "The sudents of the Villain Academy"
 puts "-------------------"
@@ -13,7 +14,5 @@ puts "The Joker"
 puts "Joffrey Baratheon"
 puts "Norman Bates"
 #then we add how many students we have
-print "Overall we have "
-#important to note that print doesnt add a new line
-print 11
-puts "great students"
+puts "Overall we have #{student_count} great students "
+
