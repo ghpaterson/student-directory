@@ -1,17 +1,17 @@
 
 #lets put all the students into an array
 students = [
-"Dr. Hannibal Lecter",
-"Darth Vader",
-"Nurse Ratched",
-"Michael Corleone",
-"Alex DeLarge",
-"The Wicked Witch of the West",
-"Terminator",
-"Freddie Krueger",
-"The Joker",
-"Joffrey Baratheon",
-"Norman Bates"
+["Dr. Hannibal Lecter", :november],
+["Darth Vader", :november],
+["Nurse Ratched", :november],
+["Michael Corleone", :november],
+["Alex DeLarge", :november],
+["The Wicked Witch of the West", :november],
+["Terminator", :november],
+["Freddie Krueger", :november],
+["The Joker", :november],
+["Joffrey Baratheon", :november],
+["Norman Bates", :november]
 ]
 #Im going to create methods here
 
@@ -20,14 +20,14 @@ def header
   puts "-------------------"
 end
 
-def print(names)
-		names.each do |name|
-  		puts name
+def print(students)
+		students.each do |student|
+  		puts "#{student[0]} (#{student[1]} cohort)"
 		end
 end
 
-def footer(names)
-		puts "Overall we have #{names.count} great students "
+def footer(students)
+		puts "Overall we have #{students.count} great students "
 end
 
 #nothing will happen until I call the methods
