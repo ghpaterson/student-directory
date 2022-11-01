@@ -27,9 +27,10 @@ def print(names)
 end
 
 def footer(names)
-	puts "Overall we have #{names.count} great students "
+		puts "Overall we have #{names.count} great students "
 end
 
+#nothing will happen until I call the methods
 header
 print(students)
 footer(students)
