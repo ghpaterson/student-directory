@@ -5,12 +5,12 @@ puts "Please enter the names of the students"
 puts "To finish, just hit enter twice"
 
 @students = []
-name = gets.chomp
+name = STDIN.gets.chomp
 		
 		while !name.empty? do		#saying while name isnt empty continue to input more names
 				@students << {name: name, cohort: :november}
 				puts "We now have #{@students.count} students"
-				name = gets.chomp
+				name = STDIN.gets.chomp
 
 		end
 		@students
@@ -74,8 +74,8 @@ def save_students
 		file.close
 end
 
-def load_students
-		file = File.open("students.csv", "r")
+def load_students(filename = "students.csv")
+		file = File.open(filename, "r")
 		file.readlines.each do |line|
 		name, cohort = line.chomp.split(",")
 				@students << {name: name, cohort: cohort.to_sym}
@@ -83,17 +83,25 @@ def load_students
 		file.close
 end
 
-def interactive_menu
-		loop do
-			print_menu
-			process(gets.chomp)
+def try_load_students
+		filename = ARGV.first
+		return if filename.nil?
+		if File.exist?(filename)
+				load_students(filename)
+						puts "Loaded #{@students.count} from #{filename}"
+		else
+				puts "Sorry #{filename} doesn't exist"
+		exit
 		end
 end
 
-#nothing will happen until I call the methods
-#students = input_students
-#header
-#print_student_list(students)
-#footer(students)
+def interactive_menu
+		loop do
+			print_menu
+			process(STDIN.gets.chomp)
+		end
+end
+
+try_load_students
 interactive_menu
 
